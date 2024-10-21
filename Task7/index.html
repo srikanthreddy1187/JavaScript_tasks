@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship Eligibility Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Scholarship Eligibility Checker</h1>
+
+    <div class="input-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" placeholder="Enter student name">
+    </div>
+
+    <div class="input-group">
+      <label for="gpa">GPA:</label>
+      <input type="number" step="0.01" id="gpa" placeholder="Enter GPA">
+    </div>
+
+    <div class="button-group">
+      <button onclick="checkEligibility()">Check Eligibility</button>
+    </div>
+
+    <h2>Eligibility Status: <span id="status"></span></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

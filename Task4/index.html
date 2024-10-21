@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Account</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bank Account Operations</h1>
+
+    <div class="input-group">
+      <label for="accountNumber">Account Number:</label>
+      <input type="text" id="accountNumber" value="9705501187" disabled>
+    </div>
+
+    <div class="input-group">
+      <label for="accountHolder">Account Holder Name:</label>
+      <input type="text" id="accountHolder" value="srikanth reddy" disabled>
+    </div>
+
+    <div class="input-group">
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount" placeholder="Enter amount">
+    </div>
+
+    <div class="button-group">
+      <button onclick="deposit()">Deposit</button>
+      <button onclick="withdraw()">Withdraw</button>
+      <button onclick="checkBalance()">Check Balance</button>
+    </div>
+
+    <h2>Current Balance: <span id="balance">0</span></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

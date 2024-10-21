@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2b7ed6;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Instagram Login</h2>
+
+    <form id="login-form">
+        <input type="text" id="login-input" placeholder="Username, Email, or Mobile" required>
+        <span id="login-error" class="error"></span>
+
+        <input type="password" id="password-input" placeholder="Password" required>
+        <span id="password-error" class="error"></span>
+
+        <input type="submit" value="Log In">
+    </form>
+</div>
+
+<script>
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        const loginInput = document.getElementById('login-input').value.trim();
+        const passwordInput = document.getElementById('password-input').value;
+
+        const loginError = document.getElementById('login-error');
+        const passwordError = document.getElementById('password-error');
+
+        loginError.textContent = '';
+        passwordError.textContent = '';
+
+        let valid = true;
+
+        if (loginInput.includes('@')) {
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!emailPattern.test(loginInput)) {
+                loginError.textContent = 'Email must be a valid @gmail.com address.';
+                valid = false;
+            }
+        } else if (/^\d+$/.test(loginInput)) {
+            if (loginInput.length !== 10) {
+                loginError.textContent = 'Mobile number must be exactly 10 digits.';
+                valid = false;
+            }
+        } else {
+            const usernamePattern = /^[a-zA-Z]+$/;
+            if (!usernamePattern.test(loginInput)) {
+                loginError.textContent = 'Username should contain only letters and no spaces or digits.';
+                valid = false;
+            }
+        }
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordPattern.test(passwordInput)) {
+            passwordError.textContent = 'Password must be 8+ characters with uppercase, lowercase, digit, and special symbol.';
+            valid = false;
+        }
+        if (valid) {
+            alert('Login successful!');
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Loan Manager</h1>
+
+    <div class="input-group">
+      <label for="applicantName">Applicant Name:</label>
+      <input type="text" id="applicantName" placeholder="Enter your name">
+    </div>
+
+    <div class="input-group">
+      <label for="monthlyIncome">Monthly Income:</label>
+      <input type="number" id="monthlyIncome" placeholder="Enter monthly income">
+    </div>
+
+    <div class="input-group">
+      <label for="accountBalance">Account Balance:</label>
+      <input type="number" id="accountBalance" placeholder="Enter account balance">
+    </div>
+
+    <div class="input-group">
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="number" id="loanAmount" placeholder="Enter loan amount">
+    </div>
+
+    <div class="button-group">
+      <button onclick="applyLoan()">Apply for Loan</button>
+    </div>
+
+    <h2>Loan Status: <span id="loanStatus"></span></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
